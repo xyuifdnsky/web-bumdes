@@ -1,0 +1,168 @@
+/* CSS FINAL LANDING PAGE - BUMDes Patimban */
+
+body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* OVERLAY GELAP AGAR TEKS KONTRAS */
+.overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
+}
+
+/* HEADER (NAVBAR & CLOCK) */
+header {
+    position: relative;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 20;
+}
+
+.top-left { text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
+.top-left .brand { font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; }
+.top-left .clock { font-size: 52px; font-weight: 500; margin: 5px 0; letter-spacing: 3px; }
+.top-left .date { font-size: 16px; font-weight: 400; opacity: 0.8; }
+
+.nav-links { display: flex; gap: 12px; }
+
+/* TOMBOL GLASSMORPHISM */
+.glass-btn {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 10px 22px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.glass-btn:hover { background: rgba(255, 255, 255, 0.25); transform: translateY(-3px); }
+
+/* KONTEN TENGAH */
+.main-content {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.title-main {
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 0 0 40px 0;
+    line-height: 1.1;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+
+.action-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+.action-btns .glass-btn {
+    min-width: 200px;
+    padding: 14px 28px;
+    font-size: 14px;
+    background: rgba(45, 106, 79, 0.6);
+    border: 1px solid rgba(45, 106, 79, 0.4);
+}
+
+/* =========================================
+    RESPONSIVE DESIGN (HP)
+========================================= */
+
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+        flex-direction: column-reverse; /* Navigasi di atas jam */
+        align-items: center;
+        gap: 30px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .nav-links .glass-btn { padding: 8px 14px; font-size: 11px; }
+
+    .top-left .clock { font-size: 32px; }
+    .top-left .brand { font-size: 11px; }
+
+    .title-main { font-size: 1.8rem; margin-bottom: 30px; }
+
+    .action-btns {
+        flex-direction: column; /* Tombol tumpuk atas-bawah */
+        align-items: center;
+        gap: 12px;
+    }
+
+    .action-btns .glass-btn {
+        width: 100%;
+        max-width: 280px; /* RAMPING DI HP */
+        min-width: unset;
+        padding: 12px 20px;
+    }
+}
+
+
+/* Animasi berdenyut */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+.skeleton {
+    animation: pulse 1.5s infinite ease-in-out;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+.placeholder-box {
+    width: 100%;
+    height: 150px; /* Tinggi kotak produk */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed rgba(255,255,255,0.3);
+}
+
+.placeholder-box i {
+    font-size: 40px;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 10px;
+}
